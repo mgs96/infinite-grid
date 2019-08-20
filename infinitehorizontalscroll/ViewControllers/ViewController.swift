@@ -10,13 +10,19 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    let layout = UICollectionViewLayout()
+    var infiniteGrid: InfiniteGrid?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        _ = InfiniteGrid(hostView: self.view)
+        self.infiniteGrid = InfiniteGrid(hostView: self.view)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        infiniteGrid?.scrollToCenter()
     }
 
 
